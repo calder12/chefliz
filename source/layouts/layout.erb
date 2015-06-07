@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <title><%= current_page.data.title || "Chef Liz" %></title>
+
+    <%= stylesheet_link_tag "normalize", "styles" %>
+    <%= javascript_include_tag  "all" %>
+    <script src="//use.typekit.net/fit4bmi.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+  </head>
+
+  <body class="<%= page_classes %>">
+    <div class="wrapper">
+      <div class="container">
+        <%= partial "partials/header" %>
+        <%= yield %>
+      </div>
+      <div class="push"></div>
+    </div>
+    <div class="container">
+      <%= partial "partials/footer" %>
+    </div>
+  </body>
+</html>

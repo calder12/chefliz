@@ -1,0 +1,12 @@
+
+nav{ 
+  ul{
+    list-style-type:none;
+    float:right;
+    & li{
+      display:inline-block;
+      font-weight:$light-heading-weight;
+      margin-left:20px;
+    }
+  }
+}

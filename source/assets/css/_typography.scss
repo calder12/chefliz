@@ -1,0 +1,26 @@
+body{
+  font-size:$base-font-size;
+  color:$font-color;
+  font-family: $body-family;
+  font-weight:$body-font-weight;
+  text-rendering: optimizeLegibility;
+}
+
+h1,h2,h3,h4,h5,h6{
+  font-family:$header-family;
+  font-weight:$body-font-weight;
+}
+
+p{
+  
+}
+.legible{
+  max-width:960px;
+  margin:15px auto;
+  padding:0 20px;
+}
+@media screen and (max-width:1024px){
+  body{
+    font-size:1em;
+  }
+}

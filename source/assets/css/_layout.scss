@@ -1,0 +1,15 @@
+header.row{
+  padding:10px 20px;
+  margin-bottom:0;
+  border-bottom:1px solid #ccc;
+  & h1{
+    margin:0;
+  }
+}
+footer{
+  background-color:#DDD;
+  .footer-text{
+    text-align:center;
+
+  }
+}
