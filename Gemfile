@@ -13,6 +13,9 @@ gem "middleman-minify-html", "~> 3.4.0"
 # Pagination
 gem "middleman-pagination", "~> 1.2.0"
 
+# Auto Prefix CSS
+gem 'middleman-autoprefixer'
+
 # Deployment
 gem "middleman-deploy", "~> 1.0.0"
 

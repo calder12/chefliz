@@ -1,0 +1,47 @@
+.form-element{
+  margin:10px 0;
+  padding:4px 8px;
+  width:100%;
+  max-width:100%;
+  border:1px solid #DDD;
+  border-radius:4px;
+  color:#555;
+  &:focus{
+    border:1px solid $link-color;
+    outline:none;
+    outline-offset:0;
+  }
+}
+textarea.form-element{
+  height:250px;
+}
+button{
+  font-family:$header-family;
+  background-color:$link-color;
+  padding:8px 16px;
+  border:1px solid #333;
+  border-radius:4px;
+  transition:0.3s;
+  &:hover{
+    background-color:darken($link-color,5);
+  }
+}
+.url-element{
+  display:none;
+}
+#response{
+  font-family:$header-family;
+  padding:8px 16px;
+  border-radius:4px;
+  display:none;
+  line-height:1.5;
+  font-size:.85em;
+}
+.success{
+  background-color:#dff0d8;
+  border:1px solid green;
+}
+.error{
+  background-color:#f2dede;
+  border:1px solid red;
+}

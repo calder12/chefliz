@@ -1,23 +1,54 @@
+
+a{
+  transition:0.3s;
+}
+a, a:hover, a:active, a:visited{
+  text-decoration:none;
+  color:$link-color;
+}
+
 header.row{
-  padding:10px 20px;
+  padding:20px;
   margin-bottom:0;
   border-bottom:1px solid #ccc;
   & h1{
     margin:0;
   }
-  a, a:hover, a:active, a:visited{
-    text-decoration:none;
+  a{
     color:$font-color;
-    font-size:.8em;
-  }
-  a:hover{
-    color:#ccc;
+    &:hover{
+      color:$hover-color;
+    }
   }
 }
+a:hover{
+  color:$hover-color;;
+}
+
 footer{
   border-top:1px solid #ccc;
   .footer-text{
+    text-align:left;
+  }
+  .footer-nav{
+    padding-top:20px;
+  }
+  &.row{
+    padding:0 20px;
+  }
+  @media screen and (max-width:768px){
     text-align:center;
-
+    .footer-text{
+      text-align:center;
+      p{
+        margin:10px auto 0;
+      }
+    }
+    .footer-nav{
+      padding:0;
+    }
+    ul{
+      float:none;
+    }
   }
 }

@@ -54,6 +54,7 @@ configure :build do
   # Or use a different image path
   # set :http_prefix, "/Content/images/"
 end
+
 activate :deploy do |deploy|
   deploy.build_before = true # default: false
   deploy.method = :rsync
@@ -65,3 +66,6 @@ activate :deploy do |deploy|
   # deploy.clean = true # remove orphaned files on remote host, default: false
   # deploy.flags = '-rltgoDvzO --no-p --del' # add custom flags, default: -avz
 end
+
+activate :autoprefixer
+activate :livereload

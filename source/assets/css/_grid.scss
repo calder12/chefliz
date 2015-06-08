@@ -5,10 +5,10 @@ html, body{
   min-height:100%;
   height:auto !important;
   height:100%;
-  margin:0 auto -70px;
+  margin:0 auto -80px;
 }
 footer, .push{
-  height:69px;
+  height:79px;
 }
 .clearfix:before,.cf:after {
   content:" ";
@@ -85,7 +85,7 @@ footer, .push{
     }
     [class*=span-] {
       width:100%;
-      margin-bottom: 2%;
+      margin-left:0;
     }
     [class*=offset-] {
       margin-left: 0;
