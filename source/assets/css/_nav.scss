@@ -3,6 +3,7 @@ nav{
   ul{
     list-style-type:none;
     float:right;
+    margin:0;
     & li{
       display:inline-block;
       font-weight:$light-heading-weight;

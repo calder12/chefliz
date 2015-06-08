@@ -5,29 +5,29 @@ class WordPress
     self.class.base_uri uri
   end
 
-  def pages
-    @pages ||= get_pages
+  def posts
+    @posts ||= get_posts
   end
 
   protected
 
-    def get_pages
-      pages = []
+    def get_posts
+      posts = []
       page  = 1
       limit = 10
 
-      tmp_pages = fetch_pages('page', page, limit)
+      tmp_posts = fetch_posts('post', page, limit)
 
-      while !tmp_pages.empty?
-        pages.concat tmp_pages
+      while !tmp_posts.empty?
+        posts.concat tmp_posts
         page = page + 1
-        tmp_pages = fetch_pages('page', page, limit)
+        tmp_posts = fetch_posts('post', page, limit)
       end
 
-      return pages
+      return posts
     end
 
-    def fetch_pages(type, page, limit)
-      self.class.get("/pages?type=#{type}&page=#{page}&pages_per_page=#{limit}")
+    def fetch_posts(type, page, limit)
+      self.class.get("/posts?type=#{type}&page=#{page}&posts_per_page=#{limit}")
     end
 end

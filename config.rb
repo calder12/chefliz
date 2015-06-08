@@ -9,9 +9,16 @@ ignore 'templates/*'
 wordpress = WordPress.new('http://calderonline.com/liz-admin/wp-json')
 
 # Dynamically generate pages using wordpress data
-wordpress.pages.each do |page|
-  proxy "/#{page['slug']}/index.html", "templates/page.html", locals: { page: page }
+wordpress.posts.each do |post|
+  post['terms']['category'].each do |cat|
+    if cat['slug'].include?('front-page')
+      proxy "/index.html", "templates/post.html", locals: { post: post }
+    else
+      proxy "/#{post['slug']}/index.html", "templates/post.html", locals: { post: post }
+    end
+  end
 end
+
 
 # Make the WordPress instance available to templates via a helper
 helpers do
@@ -22,8 +29,8 @@ end
 
 # Create a pageable set of posts
 activate :pagination do
-  pageable_set :pages do
-    wordpress.pages
+  pageable_set :posts do
+    wordpress.posts
   end
 end
 
@@ -46,4 +53,15 @@ configure :build do
 
   # Or use a different image path
   # set :http_prefix, "/Content/images/"
+end
+activate :deploy do |deploy|
+  deploy.build_before = true # default: false
+  deploy.method = :rsync
+  deploy.host   = 'calderonline.com'
+  deploy.path   = 'public_html/liz/'
+  # Optional Settings
+   deploy.user  = 'akramonl' # no default
+  # deploy.port  = 5309 # ssh port, default: 22
+  # deploy.clean = true # remove orphaned files on remote host, default: false
+  # deploy.flags = '-rltgoDvzO --no-p --del' # add custom flags, default: -avz
 end

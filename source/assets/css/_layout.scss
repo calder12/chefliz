@@ -5,9 +5,17 @@ header.row{
   & h1{
     margin:0;
   }
+  a, a:hover, a:active, a:visited{
+    text-decoration:none;
+    color:$font-color;
+    font-size:.8em;
+  }
+  a:hover{
+    color:#ccc;
+  }
 }
 footer{
-  background-color:#DDD;
+  border-top:1px solid #ccc;
   .footer-text{
     text-align:center;
 
