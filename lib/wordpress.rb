@@ -6,26 +6,26 @@ class WordPress
   end
 
   def posts
-    @posts ||= get_posts
+    @posts ||= get_posts('post')
   end
 
   def pages
-    @pages ||= get_pages
+    @pages ||= get_posts('page')
   end
 
   protected
 
-    def get_posts
+    def get_posts(type)
       posts = []
       page  = 1
       limit = 10
 
-      tmp_posts = fetch_posts('post', page, limit)
+      tmp_posts = fetch_posts(type, page, limit)
 
       while !tmp_posts.empty?
         posts.concat tmp_posts
         page = page + 1
-        tmp_posts = fetch_posts('post', page, limit)
+        tmp_posts = fetch_posts(type, page, limit)
       end
 
       return posts
@@ -35,23 +35,4 @@ class WordPress
       self.class.get("/posts?type=#{type}&page=#{page}&posts_per_page=#{limit}")
     end
 
-    def get_pages
-      pages = []
-      page  = 1
-      limit = 10
-
-      tmp_pages = fetch_pages('page', page, limit)
-
-      while !tmp_pages.empty?
-        pages.concat tmp_pages
-        page = page + 1
-        tmp_pages = fetch_pages('page', page, limit)
-      end
-
-      return pages
-    end
-
-    def fetch_pages(type, page, limit)
-      self.class.get("/posts?type=#{type}&page=#{page}&pages_per_page=#{limit}")
-    end
 end
