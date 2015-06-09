@@ -8,7 +8,7 @@ ignore 'templates/*'
 # rest server endpoint.
 wordpress = WordPress.new('http://calderonline.com/liz-admin/wp-json')
 
-# Dynamically generate pages using wordpress data
+# Dynamically generate posts using wordpress data
 wordpress.posts.each do |post|
   post['terms']['category'].each do |cat|
     if cat['slug'].include?('front-page')
@@ -19,6 +19,10 @@ wordpress.posts.each do |post|
   end
 end
 
+# Dynamically generate pages using wordpress data
+wordpress.pages.each do |page|
+  proxy "/#{page['slug']}/index.html", "templates/page.html", locals: { page: page }
+end
 
 # Make the WordPress instance available to templates via a helper
 helpers do
